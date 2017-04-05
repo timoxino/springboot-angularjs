@@ -1,7 +1,10 @@
-app.controller('usersController', function($scope) {
-    $scope.headingTitle = "User List";
-});
+app.controller('SigninController', function($scope) {
+    
+    this.email = $scope.email;
+    this.password = $scope.password;
 
-app.controller('rolesController', function($scope) {
-    $scope.headingTitle = "Roles List";
+    this.login = function () {
+        console.log(this.email + ' - ' + this.password);
+    };
+
 });
