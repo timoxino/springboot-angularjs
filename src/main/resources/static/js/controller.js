@@ -1,10 +1,7 @@
-app.controller('SigninController', function($scope) {
+app.controller('signInController', function($scope, signInService) {
     
-    this.email = $scope.email;
-    this.password = $scope.password;
-
     this.login = function () {
-        console.log(this.email + ' - ' + this.password);
+        signInService.signIn($scope.email,$scope.password)
     };
 
 });
