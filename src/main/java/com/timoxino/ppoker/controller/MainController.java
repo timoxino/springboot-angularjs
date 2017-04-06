@@ -1,4 +1,4 @@
-package com.timoxino.template.controller;
+package com.timoxino.ppoker.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

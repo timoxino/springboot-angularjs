@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+		springBootVersion = '1.5.2.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -16,7 +16,7 @@ apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'springboot-angularjs-template'
+	baseName = 'springboot-angularjs'
 	version = '1.0-SNAPSHOT'
 }
 
@@ -28,6 +28,9 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	runtime('com.h2database:h2')
 	runtime('org.webjars:angularjs:1.5.9')
 	runtime('org.webjars:bootstrap:3.3.7')
 }
