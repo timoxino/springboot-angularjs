@@ -28,4 +28,11 @@ public class AccountRestService
     {
         return accountRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException(email));
     }
+
+    @RequestMapping(value = "/signIn", method = RequestMethod.POST)
+    Account signIn(@RequestBody Account account)
+    {
+        String email = account.getEmail();
+        return accountRepository.findByEmail(email).orElseThrow(() -> new UserNotFoundException(email));
+    }
 }
