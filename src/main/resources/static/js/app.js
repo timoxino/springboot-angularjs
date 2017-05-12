@@ -1,16 +1,20 @@
-var app = angular.module('planning-poker', ['ngRoute','ngResource']);
-app.config(function($routeProvider){
+var app = angular.module('planning-poker', ['ngRoute']);
+
+app.config(function ($routeProvider, $httpProvider) {
+
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+
     $routeProvider
-        .when('/users',{
-            templateUrl: '/views/users.html',
-            controller: 'usersController'
+        .when('/', {
+            templateUrl: '/home.html',
+            controller: 'home',
+            controllerAs: 'controller'
         })
-        .when('/roles',{
-            templateUrl: '/views/roles.html',
-            controller: 'rolesController'
+        .when('/login', {
+            templateUrl: '/login.html',
+            controller: 'login',
+            controllerAs: 'controller'
         })
-        .otherwise(
-            { redirectTo: '/'}
-        );
+        .otherwise('/');
 });
 

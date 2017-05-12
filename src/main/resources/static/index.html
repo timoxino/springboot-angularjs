@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="planning-poker" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="planning-poker" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="planning-poker" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="planning-poker" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" ng-app="planning-poker" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="planning-poker" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="planning-poker" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="planning-poker" class="no-js"> <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -15,11 +19,12 @@
 
     <title>Signin for Planning Poker</title>
 
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css">
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for planning poker -->
-    <link href="/css/signin.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -34,33 +39,20 @@
     <script src="/webjars/angularjs/1.5.9/angular.js"></script>
     <script src="/webjars/angularjs/1.5.9/angular-resource.js"></script>
     <script src="/webjars/angularjs/1.5.9/angular-route.js"></script>
+
     <script src="/js/app.js"></script>
     <script src="/js/controller.js"></script>
-    <script src="/js/service.js"></script>
-    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.css">
 </head>
 
-<body>
-<div class="container">
-
-    <form ng-controller="SignInController as signInCtrl"
-          ng-submit="signInCtrl.signIn()"
-          name="signInForm" class="form-signin" novalidate>
-
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input ng-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input ng-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-
+<body ng-app="planning-poker">
+<div ng-controller="login as ctrl" class="container">
+    <ul class="nav nav-pills" role="tablist">
+        <li class="active"><a href="#/">home</a></li>
+        <li><a href="#/login">login</a></li>
+        <li ng-show="authenticated"><a href="" ng-click="ctrl.logout()">logout</a></li>
+    </ul>
 </div>
+<div ng-view class="container"></div>
 </body>
 
 </html>
